@@ -1,0 +1,19 @@
+Authentication and authorization
+
+Your task is to implement Authentication and Authorization with JWT
+User can signup new account with personal login & password
+– User can login with personal login & password, server returns response with Access token..
+
+Details:
+Endpoints
+Signup (auth/signup route)
+POST auth/signup - send login and password to create a new user
+Server should answer with status code 201 and corresponding message if data transfer object is valid
+Server should answer with status code 400 and corresponding message if data transfer object is invalid (no login or password, or they are not a strings)
+Login (auth/login route)
+POST auth/login - send login and password to get Access token
+Server should answer with status code 200 and tokens if data transfer object is valid
+Server should answer with status code 400 and corresponding message if data transfer object is invalid (no login or password, or they are not a strings)
+Server should answer with status code 403 and corresponding message if authentication failed (no user with such login, password doesn't match actual one, etc.)
+Once POST /auth/signup accepts password property, it is replaced with hash (for example, you can use bcrypt package or its equivalent like bcryptjs) for password encryption, no raw passwords should be in database.
+JWT Access token should contain userId and login in a payload and has expiration time (expiration time of Refresh token should be longer, than Access token).
